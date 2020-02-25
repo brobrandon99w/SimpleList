@@ -1,8 +1,8 @@
 /*
  * @creator: 		Brandon Williams
- * @created:		2/4/2020
+ * @created:		2/20/2020
  * @classID:		125
- * @assignmentNum: 	1
+ * @assignmentNum: 	2
  * description: Used for practice with Javadoc formatting, creating unit tests,
  * 				and using Junit. Methods either alter an array or offer
  * 				information pertaining to it.
@@ -24,24 +24,34 @@ public class SimpleList{
 	/**
 	 * Adds the parameter to the beginning of the list (index = 0). Moves
 	 * the other integers in the list over to make room for the parameter.
-	 * If the list is full, then the last element "falls off" the list.
-	 * Increments the count only if the list isn't full.
+	 * If the list is full, then increase the size by 50% to make room for
+	 * the parameter. Increment the count.
 	 * @param element
 	 */
 	public void add(int element) {
+		if (count == list.length) {
+			int[] incSizeArray = new int[list.length 
+			+ (int)Math.floor(list.length / 2)];
+			
+			for (int index = 0; index < list.length; index++) {
+				incSizeArray[index] = list[index];
+			}
+			list = incSizeArray;
+		}
 		for(int index = count - 1; index >= 0; index--) {
-			if (index != list.length-1)
+			if (index != list.length - 1)
 				list[index + 1] = list[index];
 		}
 		list[0] = element;
-		if (count != list.length)
-			count++;
+		count++;
 	}
 	
 	/**
 	 * Removes the first occurrence of the element from the list if it exists.
 	 * Situationally moves the other values in the list down and adjust the 
-	 * count.
+	 * count. If more than a fourth of the list is empty, and the list has at
+	 * least more than one entry, then the size of the list is decreased by
+	 * 25%.
 	 * @param element
 	 */
 	public void remove(int element) {
@@ -56,7 +66,19 @@ public class SimpleList{
 				list[index] = list[index + 1];
 				index++;
 			}
-		count--;
+			count--;
+			
+			if(((list.length - count) > (Math.floor(list.length / 4)))
+			&& list.length > 1) {
+				int[] decSizeArray = new int[list.length -
+				(int)Math.floor(list.length / 4)];
+				
+				for (index = 0; index < list.length -
+				(int)Math.floor(list.length / 4); index++) {	
+					decSizeArray[index] = list[index];
+				}
+				list = decSizeArray;
+			}
 		}
 	}
 	
