@@ -121,6 +121,40 @@ public class SimpleList{
 		return index;
 	}
 	
+	/**
+	 * Adds the parameter to the end of the list. Moves the other
+	 * integers in the list over to make room for the parameter.
+	 * If the list is full, then increase the size by 50% to make room for
+	 * the parameter. Increment the count.
+	 * @param element
+	 */
+	public void append(int element) {
+		if (count == list.length) {
+			int[] incSizeArray = new int[list.length 
+			+ (int)Math.floor(list.length / 2)];
+			
+			for (int index = 0; index < list.length; index++) {
+				incSizeArray[index] = list[index];
+			}
+			list = incSizeArray;
+		}
+		list[count] = element;
+		count++;
+	}
 	
+	/**
+	 * Return the first element in the list.
+	 * @return list[0]
+	 */
+	public int first() {
+		return list[0];
+	}
 	
+	/**
+	 * Return the current number of possible locations in the list
+	 * @return list.length;
+	 */
+	public int size() {
+		return list.length;
+	}
 }

@@ -228,4 +228,109 @@ class SimpleListTest {
 		int output = test.search(4);
 		assertNotEquals(3, output);
 	}
+	
+	/**
+	 * Tests append to see if integers are correctly added
+	 * to the end of the list.
+	 */
+	@Test
+	void testAppend() {
+		SimpleList test = new SimpleList();
+		test.append(7);
+		test.append(10);
+		test.append(9);
+		String output = test.toString();
+		assertEquals("7 10 9", output);
+	}
+	
+	/**
+	 * Tests append to see if the list increases in size when
+	 * count and list.length are the same value.
+	 */
+	@Test
+	void testAppend2() {
+		SimpleList test = new SimpleList();
+		test.append(1);
+		test.append(2);
+		test.append(3);
+		test.append(4);
+		test.append(5);
+		test.append(6);
+		test.append(7);
+		test.append(8);
+		test.append(9);
+		test.append(10);
+		test.append(11);
+		String output = test.toString();
+		assertEquals("1 2 3 4 5 6 7 8 9 10 11", output);
+	}
+	
+	/**
+	 * Tests first to see if the first element is correctly returned.
+	 */
+	@Test
+	void testFirst() {
+		SimpleList test = new SimpleList();
+		test.add(3);
+		test.add(7);
+		test.add(10);
+		int output = test.first();
+		assertEquals(10, output);
+	}
+	
+	/**
+	 * Tests first to see if zero is returned when there is no
+	 * elements in the list.
+	 */
+	@Test
+	void testFirst2() {
+		SimpleList test = new SimpleList();
+		int output = test.first();
+		assertEquals(0, output);
+	}
+	
+	/**
+	 * Tests size to see if the length of the list is correctly returned.
+	 */
+	@Test
+	void testSize() {
+		SimpleList test = new SimpleList();
+		int output = test.size();
+		assertEquals(10, output);
+	}
+	
+	/**
+	 * Tests size to see if the length of the list after it
+	 * is increased by 50% is correctly returned.
+	 */
+	@Test
+	void testSize2() {
+		SimpleList test = new SimpleList();
+		test.append(1);
+		test.append(2);
+		test.append(3);
+		test.append(4);
+		test.append(5);
+		test.append(6);
+		test.append(7);
+		test.append(8);
+		test.append(9);
+		test.append(10);
+		test.append(11);
+		int output = test.size();
+		assertEquals(15, output);
+	}
+	
+	/**
+	 * Tests size to see if the length of the list after it
+	 * is decreased by 25% is correctly returned.
+	 */
+	@Test
+	void testSize3() {
+		SimpleList test = new SimpleList();
+		test.add(1);
+		test.remove(1);
+		int output = test.size();
+		assertEquals(8, output);
+	}
 }
