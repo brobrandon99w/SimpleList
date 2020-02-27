@@ -279,14 +279,38 @@ class SimpleListTest {
 	}
 	
 	/**
-	 * Tests first to see if zero is returned when there is no
+	 * Tests first to see if -1 is returned when there is no
 	 * elements in the list.
 	 */
 	@Test
 	void testFirst2() {
 		SimpleList test = new SimpleList();
 		int output = test.first();
-		assertEquals(0, output);
+		assertEquals(-1, output);
+	}
+	
+	/**
+	 * Tests first to see if the first element is correctly returned.
+	 */
+	@Test
+	void testLast() {
+		SimpleList test = new SimpleList();
+		test.add(3);
+		test.add(7);
+		test.add(10);
+		int output = test.last();
+		assertEquals(3, output);
+	}
+	
+	/**
+	 * Tests first to see if -1 is returned when there is no
+	 * elements in the list.
+	 */
+	@Test
+	void testLast2() {
+		SimpleList test = new SimpleList();
+		int output = test.last();
+		assertEquals(-1, output);
 	}
 	
 	/**

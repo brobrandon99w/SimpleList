@@ -144,10 +144,25 @@ public class SimpleList{
 	
 	/**
 	 * Return the first element in the list.
-	 * @return list[0]
+	 * @return firstElement
 	 */
 	public int first() {
-		return list[0];
+		int firstElement = -1;
+		if (count > 0)
+			firstElement = list[0];
+		return firstElement;
+		
+	}
+	
+	/**
+	 * Return the first element in the list.
+	 * @return lastElement
+	 */
+	public int last() {
+		int lastElement = -1;
+		if (count > 0)
+			lastElement = list[count - 1];
+		return lastElement;
 	}
 	
 	/**
