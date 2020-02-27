@@ -290,7 +290,7 @@ class SimpleListTest {
 	}
 	
 	/**
-	 * Tests first to see if the first element is correctly returned.
+	 * Tests last to see if the last element is correctly returned.
 	 */
 	@Test
 	void testLast() {
@@ -303,7 +303,7 @@ class SimpleListTest {
 	}
 	
 	/**
-	 * Tests first to see if -1 is returned when there is no
+	 * Tests last to see if -1 is returned when there is no
 	 * elements in the list.
 	 */
 	@Test

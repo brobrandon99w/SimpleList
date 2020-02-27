@@ -155,7 +155,7 @@ public class SimpleList{
 	}
 	
 	/**
-	 * Return the first element in the list.
+	 * Return the last element in the list.
 	 * @return lastElement
 	 */
 	public int last() {
